@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">diagnoseClient</string>
+    <string name="cellular">移动数据</string>
+    <string name="wlan">WLAN</string>
+    <string name="ethernet">以太网</string>
+    <string name="unknown">未知</string>
+    <string name="http1">网页测试</string>
+    <string name="type">网络类型</string>
+    <string name="status">状态</string>
+
+    <string name="response">Response is successful: %1$s</string>
+    <string name="log">log:</string>
+    <string name="connection">网络状态：未知</string>
+    <string name="ip">ip:</string>
+    <string name="dns">dns:</string>
+    <string name="logVisible">日志预览</string>
+    <string name="dnsResolver">dns解析</string>
+</resources>

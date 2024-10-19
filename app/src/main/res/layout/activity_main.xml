@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/wlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/wlan"
+        app:layout_constraintStart_toStartOf="@+id/cellular"
+        app:layout_constraintTop_toBottomOf="@+id/cellular" />
+
+    <TextView
+        android:id="@+id/wlan_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/unknown"
+        app:layout_constraintStart_toStartOf="@+id/cellular_text"
+        app:layout_constraintTop_toBottomOf="@+id/cellular_text" />
+
+    <TextView
+        android:id="@+id/ethernet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/ethernet"
+        app:layout_constraintStart_toStartOf="@+id/wlan"
+        app:layout_constraintTop_toBottomOf="@+id/wlan" />
+
+    <TextView
+        android:id="@+id/cellular_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/unknown"
+        app:layout_constraintStart_toStartOf="@+id/status"
+        app:layout_constraintTop_toBottomOf="@+id/status" />
+
+    <TextView
+        android:id="@+id/http1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/http1"
+        app:layout_constraintStart_toStartOf="@+id/ethernet"
+        app:layout_constraintTop_toBottomOf="@+id/ethernet" />
+
+    <TextView
+        android:id="@+id/log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/log"
+        app:layout_constraintStart_toStartOf="@+id/http1"
+        app:layout_constraintTop_toBottomOf="@+id/http1" />
+
+    <TextView
+        android:id="@+id/cellular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/cellular"
+        app:layout_constraintStart_toStartOf="@+id/type"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/http1_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/unknown"
+        app:layout_constraintStart_toStartOf="@+id/ethernet_text"
+        app:layout_constraintTop_toBottomOf="@+id/ethernet_text" />
+
+    <TextView
+        android:id="@+id/ethernet_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/unknown"
+        app:layout_constraintStart_toStartOf="@+id/wlan_text"
+        app:layout_constraintTop_toBottomOf="@+id/wlan_text" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="237dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/log_text"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        tools:layout_editor_absoluteX="135dp"-->
+    <!--        tools:layout_editor_absoluteY="375dp" />-->
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/log"
+        app:layout_constraintTop_toBottomOf="@+id/log">
+
+        <TextView
+            android:id="@+id/log_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="vertical" />-->
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="416dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/connection"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/ip"
+        app:layout_constraintStart_toStartOf="@+id/connection"
+        app:layout_constraintTop_toBottomOf="@+id/connection" />
+
+    <TextView
+        android:id="@+id/dns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/dns"
+        app:layout_constraintStart_toStartOf="@+id/ip"
+        app:layout_constraintTop_toBottomOf="@+id/ip" />
+
+    <TextView
+        android:id="@+id/ip_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/unknown"
+        app:layout_constraintStart_toStartOf="@+id/connection"
+        app:layout_constraintTop_toBottomOf="@+id/connection" />
+
+    <TextView
+        android:id="@+id/dns_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/unknown"
+        app:layout_constraintStart_toStartOf="@+id/ip_text"
+        app:layout_constraintTop_toBottomOf="@+id/ip_text" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/logVisible_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/logVisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dnsResolver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="@string/dnsResolver"
+        app:layout_constraintEnd_toEndOf="@+id/dns"
+        app:layout_constraintStart_toEndOf="@+id/dns"
+        app:layout_constraintTop_toBottomOf="@+id/dns" />
+
+    <TextView
+        android:id="@+id/dnsResolver_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="@string/unknown"
+        app:layout_constraintStart_toStartOf="@+id/dns_text"
+        app:layout_constraintTop_toBottomOf="@+id/dns_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
