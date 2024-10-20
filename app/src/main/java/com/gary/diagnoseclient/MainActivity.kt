@@ -3,6 +3,8 @@ package com.gary.diagnoseclient
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.ScrollView
 import android.widget.TextView
@@ -10,6 +12,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.gary.diagnoseclient.ForegroundService.Companion.CHANNEL_ID
 import com.google.android.material.switchmaterial.SwitchMaterial
 
@@ -20,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var networkInformationUtils: NetworkInformationUtils
     private val url: String = "https://www.baidu.com"
     private val interval: Long = 3000
-
+    private lateinit var adapter: LogAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,13 +45,14 @@ class MainActivity : AppCompatActivity() {
         val wlan: TextView = findViewById(R.id.wlan_text)
         val ethernet: TextView = findViewById(R.id.ethernet_text)
         val http1: TextView = findViewById(R.id.http1_text)
-        val logText: TextView = findViewById(R.id.log_text)
-        val scrollView: ScrollView = findViewById(R.id.scrollView2)
+//        val logText: TextView = findViewById(R.id.log_text)
+//        val scrollView: ScrollView = findViewById(R.id.scrollView2)
         val connection: TextView = findViewById(R.id.connection)
         val ip: TextView = findViewById(R.id.ip_text)
         val dns: TextView = findViewById(R.id.dns_text)
         val dnsResolver: TextView = findViewById(R.id.dnsResolver_text)
         val isVisible: SwitchMaterial = findViewById(R.id.logVisible_switch)
+        val logText: RecyclerView = findViewById(R.id.recycler_view)
 
 
         connectUtils.getNetworkStatus(this)
@@ -78,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                 })
 
                 netUtils.stopCheckingWebsiteStatus()
+
             }
 
             override fun onFailure(errorMessage: String) {
@@ -90,7 +96,13 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        logUtils = LogUtils(scrollView, logText)
+
+        adapter = LogAdapter(mutableListOf())
+        logText.adapter = adapter
+        logText.layoutManager = LinearLayoutManager(this)
+
+        logUtils = LogUtils(logText, adapter)
+
         logUtils.startLogging()
         isVisible.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked)
@@ -99,6 +111,20 @@ class MainActivity : AppCompatActivity() {
                 logUtils.stopVisible()
             Log.d("isChecked", isChecked.toString())
         }
+
+
+        val handler = Handler(Looper.getMainLooper())
+        val runnable = object : Runnable {
+            override fun run() {
+                Log.i("定时日志", "这是一句定时输出的日志")
+                handler.postDelayed(this, 10) // 每秒输出一次
+            }
+        }
+        handler.post(runnable) // 开始定时任务
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            isVisible.isEnabled = true // 5 秒后启用按钮
+        }, 10000) // 5000 毫秒
 
     }
 

@@ -116,28 +116,28 @@
     <!--        tools:layout_editor_absoluteX="135dp"-->
     <!--        tools:layout_editor_absoluteY="375dp" />-->
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/log"
-        app:layout_constraintTop_toBottomOf="@+id/log">
+<!--    <ScrollView-->
+<!--        android:id="@+id/scrollView2"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/log"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/log">-->
 
-        <TextView
-            android:id="@+id/log_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/log_text"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="14sp" />-->
 
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="vertical" />-->
-    </ScrollView>
+<!--        &lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--        &lt;!&ndash;            android:orientation="vertical" />&ndash;&gt;-->
+<!--    </ScrollView>-->
 
     <TextView
         android:id="@+id/connection"
@@ -194,6 +194,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginEnd="50dp"
         android:text="@string/logVisible"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -215,5 +216,16 @@
         android:text="@string/unknown"
         app:layout_constraintStart_toStartOf="@+id/dns_text"
         app:layout_constraintTop_toBottomOf="@+id/dns_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/log"
+        app:layout_constraintTop_toBottomOf="@+id/log" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
